@@ -1031,7 +1031,7 @@ nets = dict(
         SUBSIDY_FUNC=lambda height: 500*100000000 >> (height + 1)//84000,
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         BLOCK_PERIOD=150, # one block generation time
-        SYMBOL='PWN',
+        SYMBOL='PAWN',
         CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'pawncoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/pawncoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.pawncoin'), 'pawncoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://explorer.pawncoin.co/block/',
         ADDRESS_EXPLORER_URL_PREFIX='http://explorer.pawncoin.co/address/',
