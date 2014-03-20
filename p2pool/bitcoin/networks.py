@@ -1020,10 +1020,10 @@ nets = dict(
         DUST_THRESHOLD=0.03e8, #??
     ),
     pawncoin=math.Object(
-        P2P_PREFIX='xxxxxxxxx'.decode('hex'), #stripped from fckbankscoind's main.cpp -> pchMessageStart[4] = { 0xfc, 0xd9, 0xb7, 0xdd };
-        P2P_PORT=xxxxx, 
-        ADDRESS_VERSION=XX, #look again in the sourcecode in the file base58.h, and find the value of PUBKEY_ADDRESS.
-        RPC_PORT=xxxx, 
+        P2P_PREFIX='defaced0'.decode('hex'), #stripped from fckbankscoind's main.cpp -> pchMessageStart[4] = { 0xfc, 0xd9, 0xb7, 0xdd };
+        P2P_PORT=32641, 
+        ADDRESS_VERSION=55, #look again in the sourcecode in the file base58.h, and find the value of PUBKEY_ADDRESS.
+        RPC_PORT=32640, 
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
             'pawncoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
