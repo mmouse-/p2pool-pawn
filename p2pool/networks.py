@@ -877,7 +877,7 @@ nets = dict(
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False, #this value tells the p2pool if it should mine solo or connect to other p2pools.
         WORKER_PORT=7061,
-        BOOTSTRAP_ADDRS='freebtc.eu'.split(' '), #here we need to add working p2pool fck nodes to allow others connecting
+        BOOTSTRAP_ADDRS='freebtc.eu 198.12.78.137'.split(' '), #here we need to add working p2pool fck nodes to allow others connecting
         ANNOUNCE_CHANNEL='#p2pool-pawn',
         VERSION_CHECK=lambda v: 10000 <= v,
     ),
