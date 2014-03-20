@@ -1025,7 +1025,7 @@ nets = dict(
         ADDRESS_VERSION=55, #look again in the sourcecode in the file base58.h, and find the value of PUBKEY_ADDRESS.
         RPC_PORT=32640, 
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'pawncoinaddress' in (yield bitcoind.rpc_help()) and
+            'Pawncoin address' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),
         SUBSIDY_FUNC=lambda height: 500*100000000 >> (height + 1)//84000,
