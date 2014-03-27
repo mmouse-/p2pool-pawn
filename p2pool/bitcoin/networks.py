@@ -1033,9 +1033,9 @@ nets = dict(
         BLOCK_PERIOD=150, # one block generation time
         SYMBOL='PAWN',
         CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'pawncoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/pawncoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.pawncoin'), 'pawncoin.conf'),
-        BLOCK_EXPLORER_URL_PREFIX='http://explorer.pawncoin.co/block/',
-        ADDRESS_EXPLORER_URL_PREFIX='http://explorer.pawncoin.co/address/',
-        TX_EXPLORER_URL_PREFIX='http://explorer.pawncoin.co/tx/',
+        BLOCK_EXPLORER_URL_PREFIX='http://cryptoblox.com/block/',
+        ADDRESS_EXPLORER_URL_PREFIX='http://cryptoblox.com/address/',
+        TX_EXPLORER_URL_PREFIX='http://cryptoblox.com/tx/',
         SANE_TARGET_RANGE=(2**256//1000000000 - 1, 2**256//1000 - 1), #??
         DUMB_SCRYPT_DIFF=2**16, #??
         DUST_THRESHOLD=0.03e8, #??
