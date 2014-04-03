@@ -865,21 +865,22 @@ nets = dict(
     ),
     pawncoin=math.Object(
         PARENT=networks.nets['pawncoin'],
-        SHARE_PERIOD=20, # seconds #How often should P2Pool generate a new share (rule of thumb: 1/5 - 1/10 of the block period)
+        SHARE_PERIOD=20, # seconds
         CHAIN_LENGTH=24*60*60//20, # shares
-        REAL_CHAIN_LENGTH=24*60*60//20, # shares #CHAIN_LENGTH & REAL_CHAIN_LENGTH are set up to allow for 3 Hour PPLNS.
-        TARGET_LOOKBEHIND=20, # is set to 30 (shares) giving a 300 second (5min) difficulty adjustment.
-        SPREAD=12, # blocks #SPREAD=30 block every 60 seconds 600/60=10 10x3=30 because bitcoin's SPREAD=3 block every 600 seconds and litecoin'sSPREAD=12 block every 150 seconds 600/150=4 4x3=12
-        IDENTIFIER='7061776e7061776e'.decode('hex'), #some random s-it (I think its used to identify others p2pool's mining this coin)
-        PREFIX='6e7061776e706177'.decode('hex'), #IDENTIFIER & PREFIX: P2Pool will only sync with other nodes who have Identifier and Prefix matching yours (and using same p2p port).. if any of the above values change, a new identifier & prefix need to be created in order to prevent problems.
-        P2P_PORT=7060, #port that p2pool is comunicating on with other p2pools
+        REAL_CHAIN_LENGTH=24*60*60//20, # shares
+        TARGET_LOOKBEHIND=20,
+        SPREAD=12, # blocks
+        IDENTIFIER='7061776e7061776e'.decode('hex'),
+        PREFIX='6e7061776e706177'.decode('hex'),
+        P2P_PORT=7060,
         MIN_TARGET=0,
         MAX_TARGET=2**256//2**20 - 1,
-        PERSIST=False, #this value tells the p2pool if it should mine solo or connect to other p2pools.
+        PERSIST=True,
         WORKER_PORT=7061,
-        BOOTSTRAP_ADDRS='freebtc.eu 198.12.78.137'.split(' '), #here we need to add working p2pool fck nodes to allow others connecting
+        BOOTSTRAP_ADDRS='freebtc.eu 198.12.78.137 pawn.coinpools.de'.split(' '),
         ANNOUNCE_CHANNEL='#p2pool-pawn',
-        VERSION_CHECK=lambda v: 10000 <= v,
+        VERSION_CHECK=lambda v: 1000001 <= v,
+        VERSION_WARNING=lambda v: 'Upgrade pawncoind to >=10.00.00.1!' if v < 1000001 else None,
     ),
 )
 for net_name, net in nets.iteritems():
